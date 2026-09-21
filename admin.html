@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Admin Panel - LALIT FASHION COLLECTION</title>
+
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background: #f3f4f6;
+  color: #222;
+}
+
+header {
+  background: linear-gradient(90deg, #111827, #374151);
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 23px;
+}
+
+nav {
+  margin-top: 12px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 7px;
+  font-weight: bold;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 25px auto;
+  padding: 15px;
+}
+
+.welcome {
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+.welcome h2 {
+  margin-bottom: 8px;
+}
+
+.welcome p {
+  color: #666;
+}
+
+.dashboard {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.card {
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+.card-icon {
+  font-size: 35px;
+  margin-bottom: 8px;
+}
+
+.card h3 {
+  font-size: 25px;
+  margin-bottom: 5px;
+}
+
+.card p {
+  color: #666;
+}
+
+.section {
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+.section h2 {
+  margin-bottom: 15px;
+}
+
+.actions {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.action {
+  border: none;
+  padding: 15px;
+  border-radius: 10px;
+  background: #f3f4f6;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: left;
+}
+
+.action:hover {
+  background: #e5e7eb;
+}
+
+.message {
+  margin-top: 15px;
+  text-align: center;
+  font-weight: bold;
+}
+
+footer {
+  text-align: center;
+  padding: 25px;
+  color: #777;
+}
+
+@media (max-width: 700px) {
+
+  .dashboard {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .actions {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+@media (max-width: 400px) {
+
+  .dashboard {
+    grid-template-columns: 1fr;
+  }
+
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+  <h1>🛠️ LALIT FASHION COLLECTION</h1>
+
+  <nav>
+    <a href="index.html">Store</a>
+    <a href="orders.html">Orders</a>
+    <a href="profile.html">Profile</a>
+  </nav>
+
+</header>
+
+
+<div class="container">
+
+  <div class="welcome">
+
+    <h2>👨‍💼 Admin Dashboard</h2>
+
+    <p>
+      Welcome to LALIT FASHION COLLECTION Admin Panel.
+    </p>
+
+  </div>
+
+
+  <!-- Dashboard -->
+
+  <div class="dashboard">
+
+    <div class="card">
+
+      <div class="card-icon">📦</div>
+
+      <h3>10</h3>
+
+      <p>Products</p>
+
+    </div>
+
+
+    <div class="card">
+
+      <div class="card-icon">🛒</div>
+
+      <h3>2</h3>
+
+      <p>Orders</p>
+
+    </div>
+
+
+    <div class="card">
+
+      <div class="card-icon">👥</div>
+
+      <h3>5</h3>
+
+      <p>Customers</p>
+
+    </div>
+
+
+    <div class="card">
+
+      <div class="card-icon">💰</div>
+
+      <h3>₹1,048</h3>
+
+      <p>Sales</p>
+
+    </div>
+
+  </div>
+
+
+  <!-- Management -->
+
+  <div class="section">
+
+    <h2>⚙️ Manage Store</h2>
+
+    <div class="actions">
+
+      <button class="action" onclick="showMessage('Add Product section will be connected to backend.')">
+        ➕ Add Product
+      </button>
+
+      <button class="action" onclick="showMessage('Product management will be connected to backend.')">
+        ✏️ Manage Products
+      </button>
+
+      <button class="action" onclick="showMessage('Order management will be connected to backend.')">
+        📦 Manage Orders
+      </button>
+
+      <button class="action" onclick="showMessage('Customer management will be connected to backend.')">
+        👥 Manage Customers
+      </button>
+
+    </div>
+
+    <div class="message" id="message"></div>
+
+  </div>
+
+
+  <!-- Store -->
+
+  <div class="section">
+
+    <h2>🏪 Store Links</h2>
+
+    <div class="actions">
+
+      <a class="action" href="index.html">
+        🛍️ View Store
+      </a>
+
+      <a class="action" href="contact.html">
+        📞 Contact Page
+      </a>
+
+      <a class="action" href="about.html">
+        ℹ️ About Store
+      </a>
+
+      <a class="action" href="login.html">
+        🔐 Customer Login
+      </a>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<footer>
+  © 2026 LALIT FASHION COLLECTION
+</footer>
+
+
+<script>
+
+function showMessage(text) {
+
+  let message = document.getElementById("message");
+
+  message.style.color = "#ee0979";
+
+  message.innerHTML = "⚙️ " + text;
+
+}
+
+</script>
+
+</body>
+</html>
