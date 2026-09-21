@@ -191,7 +191,7 @@ async function loadProducts() {
     .from("products")
     .select("*")
     .eq("category", "T-Shirts")
-    .limit(1);
+    .order("id", { ascending: true });
 
   if (error) {
     document.body.insertAdjacentHTML(
