@@ -1,689 +1,1042 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Lalit Fashion Collection</title>
+<title>Lalit Fashion Collection</title>
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, sans-serif;
-    }
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial,sans-serif;
+}
 
-    body {
-      background: #f5f7fb;
-      color: #222;
-    }
+body{
+  background:#f5f7fb;
+  color:#222;
+}
 
-    /* HEADER */
-    header {
-      background: linear-gradient(135deg, #6a11cb, #2575fc, #00c6ff);
-      color: white;
-      padding: 18px 6%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      box-shadow: 0 4px 15px rgba(0,0,0,.15);
-    }
+/* HEADER */
+header{
+  background:linear-gradient(135deg,#6a11cb,#2575fc,#00c6ff);
+  color:white;
+  padding:16px 6%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  position:sticky;
+  top:0;
+  z-index:100;
+  box-shadow:0 4px 15px rgba(0,0,0,.15);
+}
 
-    .logo {
-      font-size: 24px;
-      font-weight: bold;
-      letter-spacing: 1px;
-    }
+.logo{
+  font-size:23px;
+  font-weight:bold;
+}
 
-    .cart {
-      background: white;
-      color: #2575fc;
-      padding: 10px 17px;
-      border-radius: 25px;
-      cursor: pointer;
-      font-weight: bold;
-    }
+.cart{
+  background:white;
+  color:#2575fc;
+  padding:10px 17px;
+  border-radius:25px;
+  cursor:pointer;
+  font-weight:bold;
+}
 
-    /* HERO */
-    .hero {
-      min-height: 350px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      color: white;
-      padding: 40px 20px;
+/* HERO */
+.hero{
+  min-height:370px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  color:white;
+  padding:40px 20px;
+  background:
+  linear-gradient(135deg,#6a11cb,#2575fc,#00c6ff);
+}
 
-      background:
-        linear-gradient(135deg,
-        rgba(106,17,203,.9),
-        rgba(37,117,252,.85),
-        rgba(0,198,255,.8));
-    }
+.hero h1{
+  font-size:48px;
+  margin-bottom:15px;
+}
 
-    .hero h1 {
-      font-size: 48px;
-      margin-bottom: 12px;
-    }
+.hero p{
+  font-size:20px;
+  margin-bottom:25px;
+}
 
-    .hero p {
-      font-size: 20px;
-      margin-bottom: 25px;
-    }
+.shop-btn{
+  display:inline-block;
+  background:white;
+  color:#6a11cb;
+  padding:13px 30px;
+  border-radius:30px;
+  text-decoration:none;
+  font-weight:bold;
+}
 
-    .shop-btn {
-      display: inline-block;
-      background: white;
-      color: #6a11cb;
-      padding: 13px 28px;
-      border-radius: 30px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: .3s;
-    }
+/* CATEGORY */
+.category-title{
+  text-align:center;
+  margin:40px 0 25px;
+  font-size:32px;
+}
 
-    .shop-btn:hover {
-      transform: scale(1.08);
-    }
+.categories{
+  width:90%;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  gap:15px;
+}
 
-    /* SEARCH */
-    .tools {
-      padding: 25px 6%;
-      display: flex;
-      gap: 15px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
+.category-btn{
+  border:0;
+  padding:20px 10px;
+  border-radius:18px;
+  color:white;
+  font-size:17px;
+  font-weight:bold;
+  cursor:pointer;
+  transition:.3s;
+}
 
-    .tools input,
-    .tools select {
-      padding: 13px 18px;
-      border: 1px solid #ddd;
-      border-radius: 25px;
-      outline: none;
-      min-width: 220px;
-      background: white;
-    }
+.category-btn:hover{
+  transform:translateY(-5px) scale(1.02);
+}
 
-    /* PRODUCTS */
-    .section-title {
-      text-align: center;
-      font-size: 32px;
-      margin: 20px 0 30px;
-      color: #333;
-    }
+.all{
+  background:linear-gradient(135deg,#6a11cb,#2575fc);
+}
 
-    .products {
-      width: 88%;
-      margin: auto;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 25px;
-      padding-bottom: 50px;
-    }
+.tshirt{
+  background:linear-gradient(135deg,#ff416c,#ff4b2b);
+}
 
-    .card {
-      background: white;
-      border-radius: 18px;
-      overflow: hidden;
-      box-shadow: 0 6px 20px rgba(0,0,0,.09);
-      transition: .3s;
-      position: relative;
-    }
+.lower{
+  background:linear-gradient(135deg,#11998e,#38ef7d);
+}
 
-    .card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 12px 28px rgba(0,0,0,.15);
-    }
+.shorts{
+  background:linear-gradient(135deg,#f7971e,#ffd200);
+}
 
-    .product-img {
-      height: 230px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 80px;
-      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
-    }
+.jersey{
+  background:linear-gradient(135deg,#396afc,#2948ff);
+}
 
-    .card:nth-child(2) .product-img {
-      background: linear-gradient(135deg, #a18cd1, #fbc2eb);
-    }
+.tracksuit{
+  background:linear-gradient(135deg,#8e2de2,#4a00e0);
+}
 
-    .card:nth-child(3) .product-img {
-      background: linear-gradient(135deg, #84fab0, #8fd3f4);
-    }
+/* SEARCH */
+.tools{
+  width:90%;
+  margin:30px auto;
+  display:flex;
+  justify-content:center;
+  gap:15px;
+  flex-wrap:wrap;
+}
 
-    .card:nth-child(4) .product-img {
-      background: linear-gradient(135deg, #fccb90, #d57eeb);
-    }
+.tools input{
+  width:300px;
+  padding:14px 18px;
+  border:1px solid #ddd;
+  border-radius:25px;
+  outline:none;
+}
 
-    .card:nth-child(5) .product-img {
-      background: linear-gradient(135deg, #30cfd0, #330867);
-    }
+/* PRODUCTS */
+.section-title{
+  text-align:center;
+  font-size:32px;
+  margin:35px 0 25px;
+}
 
-    .card:nth-child(6) .product-img {
-      background: linear-gradient(135deg, #f6d365, #fda085);
-    }
+.products{
+  width:90%;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:22px;
+  padding-bottom:60px;
+}
 
-    .card:nth-child(7) .product-img {
-      background: linear-gradient(135deg, #5ee7df, #b490ca);
-    }
+.card{
+  background:white;
+  border-radius:18px;
+  overflow:hidden;
+  box-shadow:0 5px 20px rgba(0,0,0,.09);
+  transition:.3s;
+}
 
-    .card:nth-child(8) .product-img {
-      background: linear-gradient(135deg, #c471f5, #fa71cd);
-    }
+.card:hover{
+  transform:translateY(-7px);
+}
 
-    .card:nth-child(9) .product-img {
-      background: linear-gradient(135deg, #43e97b, #38f9d7);
-    }
+.product-img{
+  height:220px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:75px;
+}
 
-    .card:nth-child(10) .product-img {
-      background: linear-gradient(135deg, #fa709a, #fee140);
-    }
+.img1{background:linear-gradient(135deg,#ff9a9e,#fad0c4);}
+.img2{background:linear-gradient(135deg,#a18cd1,#fbc2eb);}
+.img3{background:linear-gradient(135deg,#84fab0,#8fd3f4);}
+.img4{background:linear-gradient(135deg,#fccb90,#d57eeb);}
+.img5{background:linear-gradient(135deg,#30cfd0,#330867);}
+.img6{background:linear-gradient(135deg,#f6d365,#fda085);}
+.img7{background:linear-gradient(135deg,#5ee7df,#b490ca);}
+.img8{background:linear-gradient(135deg,#c471f5,#fa71cd);}
+.img9{background:linear-gradient(135deg,#43e97b,#38f9d7);}
+.img10{background:linear-gradient(135deg,#fa709a,#fee140);}
 
-    .info {
-      padding: 18px;
-    }
+.info{
+  padding:18px;
+}
 
-    .info h3 {
-      margin-bottom: 8px;
-    }
+.info h3{
+  margin-bottom:7px;
+}
 
-    .category {
-      font-size: 13px;
-      color: #777;
-      margin-bottom: 10px;
-    }
+.category-name{
+  color:#777;
+  font-size:13px;
+  margin-bottom:10px;
+}
 
-    .price {
-      font-size: 21px;
-      font-weight: bold;
-      color: #6a11cb;
-      margin-bottom: 15px;
-    }
+.price{
+  color:#6a11cb;
+  font-size:21px;
+  font-weight:bold;
+  margin-bottom:14px;
+}
 
-    .buttons {
-      display: flex;
-      gap: 8px;
-    }
+.buttons{
+  display:flex;
+  gap:8px;
+}
 
-    .add,
-    .buy {
-      border: none;
-      padding: 10px;
-      border-radius: 8px;
-      cursor: pointer;
-      font-weight: bold;
-      flex: 1;
-    }
+button{
+  cursor:pointer;
+}
 
-    .add {
-      background: #eef1ff;
-      color: #6a11cb;
-    }
+.add,.buy{
+  border:0;
+  padding:10px;
+  border-radius:8px;
+  font-weight:bold;
+  flex:1;
+}
 
-    .buy {
-      background: linear-gradient(135deg, #6a11cb, #2575fc);
-      color: white;
-    }
+.add{
+  background:#eef1ff;
+  color:#6a11cb;
+}
 
-    .add:hover,
-    .buy:hover {
-      opacity: .85;
-    }
+.buy{
+  background:linear-gradient(135deg,#6a11cb,#2575fc);
+  color:white;
+}
 
-    /* CART */
-    .cart-box {
-      position: fixed;
-      right: -400px;
-      top: 0;
-      width: 350px;
-      max-width: 90%;
-      height: 100%;
-      background: white;
-      z-index: 999;
-      padding: 25px;
-      box-shadow: -5px 0 20px rgba(0,0,0,.2);
-      transition: .4s;
-      overflow-y: auto;
-    }
+/* CART */
+.cart-box{
+  position:fixed;
+  right:-400px;
+  top:0;
+  width:350px;
+  max-width:90%;
+  height:100%;
+  background:white;
+  z-index:999;
+  padding:25px;
+  box-shadow:-5px 0 20px rgba(0,0,0,.2);
+  transition:.4s;
+  overflow-y:auto;
+}
 
-    .cart-box.active {
-      right: 0;
-    }
+.cart-box.active{
+  right:0;
+}
 
-    .close {
-      float: right;
-      cursor: pointer;
-      font-size: 25px;
-    }
+.close{
+  float:right;
+  font-size:25px;
+  cursor:pointer;
+}
 
-    .cart-item {
-      padding: 15px 0;
-      border-bottom: 1px solid #ddd;
-    }
+.cart-item{
+  padding:15px 0;
+  border-bottom:1px solid #ddd;
+}
 
-    .total {
-      font-size: 22px;
-      font-weight: bold;
-      margin-top: 20px;
-    }
+.total{
+  margin-top:20px;
+  font-size:22px;
+  font-weight:bold;
+}
 
-    /* FOOTER */
-    footer {
-      background: #151525;
-      color: white;
-      text-align: center;
-      padding: 35px 20px;
-    }
+/* FOOTER */
+footer{
+  background:#151525;
+  color:white;
+  text-align:center;
+  padding:35px 20px;
+}
 
-    footer h2 {
-      margin-bottom: 10px;
-    }
+footer p{
+  color:#ccc;
+  margin-top:8px;
+}
 
-    footer p {
-      color: #ccc;
-      margin: 6px;
-    }
+/* MOBILE */
+@media(max-width:600px){
 
-    /* MOBILE */
-    @media(max-width:600px) {
-      .logo {
-        font-size: 18px;
-      }
+  .logo{
+    font-size:17px;
+  }
 
-      .hero h1 {
-        font-size: 34px;
-      }
+  .hero h1{
+    font-size:32px;
+  }
 
-      .hero p {
-        font-size: 16px;
-      }
+  .hero p{
+    font-size:16px;
+  }
 
-      .products {
-        width: 92%;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 12px;
-      }
+  .categories{
+    grid-template-columns:repeat(2,1fr);
+  }
 
-      .product-img {
-        height: 170px;
-        font-size: 55px;
-      }
+  .products{
+    width:94%;
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;
+  }
 
-      .info {
-        padding: 12px;
-      }
+  .product-img{
+    height:160px;
+    font-size:55px;
+  }
 
-      .info h3 {
-        font-size: 15px;
-      }
+  .info{
+    padding:12px;
+  }
 
-      .price {
-        font-size: 17px;
-      }
+  .info h3{
+    font-size:15px;
+  }
 
-      .buttons {
-        flex-direction: column;
-      }
-    }
-  </style>
+  .price{
+    font-size:17px;
+  }
+
+  .buttons{
+    flex-direction:column;
+  }
+}
+</style>
 </head>
 
 <body>
 
 <header>
-  <div class="logo">🔥 LALIT FASHION</div>
 
-  <div class="cart" onclick="openCart()">
-    🛒 Cart (<span id="cartCount">0</span>)
-  </div>
+<div class="logo">
+🔥 LALIT FASHION
+</div>
+
+<div class="cart" onclick="openCart()">
+🛒 Cart (<span id="cartCount">0</span>)
+</div>
+
 </header>
 
+
 <section class="hero">
-  <div>
-    <h1>LALIT FASHION COLLECTION</h1>
-    <p>Wear Your Style • Play Your Game</p>
-    <a href="#sports" class="shop-btn">SHOP NOW</a>
-  </div>
+
+<div>
+
+<h1>LALIT FASHION COLLECTION</h1>
+
+<p>Wear Your Style • Play Your Game</p>
+
+<a href="#categories" class="shop-btn">
+SHOP NOW
+</a>
+
+</div>
+
 </section>
+
+
+<h2 class="category-title" id="categories">
+🏆 Sports Wear
+</h2>
+
+
+<div class="categories">
+
+<button class="category-btn all"
+onclick="showCategory('all')">
+🏆 All
+</button>
+
+<button class="category-btn tshirt"
+onclick="showCategory('tshirt')">
+👕 T-Shirts
+</button>
+
+<button class="category-btn lower"
+onclick="showCategory('lower')">
+👖 Track Pants
+</button>
+
+<button class="category-btn shorts"
+onclick="showCategory('shorts')">
+🩳 Shorts
+</button>
+
+<button class="category-btn jersey"
+onclick="showCategory('jersey')">
+⚽ Jerseys
+</button>
+
+<button class="category-btn tracksuit"
+onclick="showCategory('tracksuit')">
+🧥 Tracksuits
+</button>
+
+</div>
+
 
 <div class="tools">
-  <input
-    type="text"
-    id="search"
-    placeholder="🔍 Search sports clothes..."
-    onkeyup="searchProducts()"
-  >
 
-  <select id="filter" onchange="filterProducts()">
-    <option value="all">All Sports Wear</option>
-    <option value="tshirt">T-Shirts</option>
-    <option value="lower">Lowers</option>
-    <option value="jersey">Jerseys</option>
-    <option value="tracksuit">Tracksuits</option>
-  </select>
+<input
+type="text"
+id="search"
+placeholder="🔍 Search products..."
+onkeyup="searchProducts()"
+>
+
 </div>
 
-<h2 class="section-title" id="sports">🏆 Sports Collection</h2>
 
-<section class="products" id="productList">
+<h2 class="section-title">
+🛍️ Our Collection
+</h2>
 
-  <div class="card" data-category="tshirt">
-    <div class="product-img">👕</div>
-    <div class="info">
-      <h3>Premium Sports T-Shirt</h3>
-      <div class="category">Sports T-Shirt</div>
-      <div class="price">₹499</div>
-      <div class="buttons">
-        <button class="add" onclick="addCart('Premium Sports T-Shirt',499)">Add Cart</button>
-        <button class="buy" onclick="buyNow('Premium Sports T-Shirt',499)">Buy Now</button>
-      </div>
-    </div>
-  </div>
 
-  <div class="card" data-category="tshirt">
-    <div class="product-img">👕</div>
-    <div class="info">
-      <h3>Dry Fit Gym T-Shirt</h3>
-      <div class="category">Gym Wear</div>
-      <div class="price">₹599</div>
-      <div class="buttons">
-        <button class="add" onclick="addCart('Dry Fit Gym T-Shirt',599)">Add Cart</button>
-        <button class="buy" onclick="buyNow('Dry Fit Gym T-Shirt',599)">Buy Now</button>
-      </div>
-    </div>
-  </div>
+<section class="products">
 
-  <div class="card" data-category="lower">
-    <div class="product-img">👖</div>
-    <div class="info">
-      <h3>Premium Sports Lower</h3>
-      <div class="category">Track Lower</div>
-      <div class="price">₹699</div>
-      <div class="buttons">
-        <button class="add" onclick="addCart('Premium Sports Lower',699)">Add Cart</button>
-        <button class="buy" onclick="buyNow('Premium Sports Lower',699)">Buy Now</button>
-      </div>
-    </div>
-  </div>
 
-  <div class="card" data-category="lower">
-    <div class="product-img">👖</div>
-    <div class="info">
-      <h3>Running Track Pant</h3>
-      <div class="category">Running Wear</div>
-      <div class="price">₹799</div>
-      <div class="buttons">
-        <button class="add" onclick="addCart('Running Track Pant',799)">Add Cart</button>
-        <button class="buy" onclick="buyNow('Running Track Pant',799)">Buy Now</button>
-      </div>
-    </div>
-  </div>
+<!-- PRODUCT 1 -->
 
-  <div class="card" data-category="tracksuit">
-    <div class="product-img">🧥</div>
-    <div class="info">
-      <h3>Premium Sports Jacket</h3>
-      <div class="category">Sports Jacket</div>
-      <div class="price">₹999</div>
-      <div class="buttons">
-        <button class="add" onclick="addCart('Premium Sports Jacket',999)">Add Cart</button>
-        <button class="buy" onclick="buyNow('Premium Sports Jacket',999)">Buy Now</button>
-      </div>
-    </div>
-  </div>
+<div class="card" data-category="tshirt">
 
-  <div class="card" data-category="jersey">
-    <div class="product-img">🏏</div>
-    <div class="info">
-      <h3>Cricket Jersey</h3>
-      <div class="category">Cricket Wear</div>
-      <div class="price">₹649</div>
-      <div class="buttons">
-        <button class="add" onclick="addCart('Cricket Jersey',649)">Add Cart</button>
-        <button class="buy" onclick="buyNow('Cricket Jersey',649)">Buy Now</button>
-      </div>
-    </div>
-  </div>
+<div class="product-img img1">👕</div>
 
-  <div class="card" data-category="jersey">
-    <div class="product-img">⚽</div>
-    <div class="info">
-      <h3>Football Jersey</h3>
-      <div class="category">Football Wear</div>
-      <div class="price">₹699</div>
-      <div class="buttons">
-        <button class="add" onclick="addCart('Football Jersey',699)">Add Cart</button>
-        <button class="buy" onclick="buyNow('Football Jersey',699)">Buy Now</button>
-      </div>
-    </div>
-  </div>
+<div class="info">
 
-  <div class="card" data-category="tracksuit">
-    <div class="product-img">🏃</div>
-    <div class="info">
-      <h3>Running Sports Set</h3>
-      <div class="category">Running Set</div>
-      <div class="price">₹899</div>
-      <div class="buttons">
-        <button class="add" onclick="addCart('Running Sports Set',899)">Add Cart</button>
-        <button class="buy" onclick="buyNow('Running Sports Set',899)">Buy Now</button>
-      </div>
-    </div>
-  </div>
+<h3>Gym T-Shirt</h3>
 
-  <div class="card" data-category="tracksuit">
-    <div class="product-img">🏋️</div>
-    <div class="info">
-      <h3>Gym Tracksuit</h3>
-      <div class="category">Fitness Wear</div>
-      <div class="price">₹1,099</div>
-      <div class="buttons">
-        <button class="add" onclick="addCart('Gym Tracksuit',1099)">Add Cart</button>
-        <button class="buy" onclick="buyNow('Gym Tracksuit',1099)">Buy Now</button>
-      </div>
-    </div>
-  </div>
+<div class="category-name">
+Gym Wear
+</div>
 
-  <div class="card" data-category="tshirt">
-    <div class="product-img">👕</div>
-    <div class="info">
-      <h3>Elite Performance T-Shirt</h3>
-      <div class="category">Performance Wear</div>
-      <div class="price">₹749</div>
-      <div class="buttons">
-        <button class="add" onclick="addCart('Elite Performance T-Shirt',749)">Add Cart</button>
-        <button class="buy" onclick="buyNow('Elite Performance T-Shirt',749)">Buy Now</button>
-      </div>
-    </div>
-  </div>
+<div class="price">
+₹499
+</div>
+
+<div class="buttons">
+
+<button class="add"
+onclick="addCart('Gym T-Shirt',499)">
+Add Cart
+</button>
+
+<button class="buy"
+onclick="buyNow('Gym T-Shirt',499)">
+Buy Now
+</button>
+
+</div>
+
+</div>
+</div>
+
+
+<!-- PRODUCT 2 -->
+
+<div class="card" data-category="tshirt">
+
+<div class="product-img img2">👕</div>
+
+<div class="info">
+
+<h3>Running T-Shirt</h3>
+
+<div class="category-name">
+Running Wear
+</div>
+
+<div class="price">
+₹549
+</div>
+
+<div class="buttons">
+
+<button class="add"
+onclick="addCart('Running T-Shirt',549)">
+Add Cart
+</button>
+
+<button class="buy"
+onclick="buyNow('Running T-Shirt',549)">
+Buy Now
+</button>
+
+</div>
+
+</div>
+</div>
+
+
+<!-- PRODUCT 3 -->
+
+<div class="card" data-category="jersey">
+
+<div class="product-img img3">⚽</div>
+
+<div class="info">
+
+<h3>Football Jersey</h3>
+
+<div class="category-name">
+Football Wear
+</div>
+
+<div class="price">
+₹699
+</div>
+
+<div class="buttons">
+
+<button class="add"
+onclick="addCart('Football Jersey',699)">
+Add Cart
+</button>
+
+<button class="buy"
+onclick="buyNow('Football Jersey',699)">
+Buy Now
+</button>
+
+</div>
+
+</div>
+</div>
+
+
+<!-- PRODUCT 4 -->
+
+<div class="card" data-category="jersey">
+
+<div class="product-img img4">🏏</div>
+
+<div class="info">
+
+<h3>Cricket Jersey</h3>
+
+<div class="category-name">
+Cricket Wear
+</div>
+
+<div class="price">
+₹649
+</div>
+
+<div class="buttons">
+
+<button class="add"
+onclick="addCart('Cricket Jersey',649)">
+Add Cart
+</button>
+
+<button class="buy"
+onclick="buyNow('Cricket Jersey',649)">
+Buy Now
+</button>
+
+</div>
+
+</div>
+</div>
+
+
+<!-- PRODUCT 5 -->
+
+<div class="card" data-category="lower">
+
+<div class="product-img img5">👖</div>
+
+<div class="info">
+
+<h3>Sports Track Pant</h3>
+
+<div class="category-name">
+Track Pants
+</div>
+
+<div class="price">
+₹799
+</div>
+
+<div class="buttons">
+
+<button class="add"
+onclick="addCart('Sports Track Pant',799)">
+Add Cart
+</button>
+
+<button class="buy"
+onclick="buyNow('Sports Track Pant',799)">
+Buy Now
+</button>
+
+</div>
+
+</div>
+</div>
+
+
+<!-- PRODUCT 6 -->
+
+<div class="card" data-category="shorts">
+
+<div class="product-img img6">🩳</div>
+
+<div class="info">
+
+<h3>Running Shorts</h3>
+
+<div class="category-name">
+Running Shorts
+</div>
+
+<div class="price">
+₹399
+</div>
+
+<div class="buttons">
+
+<button class="add"
+onclick="addCart('Running Shorts',399)">
+Add Cart
+</button>
+
+<button class="buy"
+onclick="buyNow('Running Shorts',399)">
+Buy Now
+</button>
+
+</div>
+
+</div>
+</div>
+
+
+<!-- PRODUCT 7 -->
+
+<div class="card" data-category="tracksuit">
+
+<div class="product-img img7">🧥</div>
+
+<div class="info">
+
+<h3>Sports Tracksuit</h3>
+
+<div class="category-name">
+Tracksuit
+</div>
+
+<div class="price">
+₹1,099
+</div>
+
+<div class="buttons">
+
+<button class="add"
+onclick="addCart('Sports Tracksuit',1099)">
+Add Cart
+</button>
+
+<button class="buy"
+onclick="buyNow('Sports Tracksuit',1099)">
+Buy Now
+</button>
+
+</div>
+
+</div>
+</div>
+
+
+<!-- PRODUCT 8 -->
+
+<div class="card" data-category="tshirt">
+
+<div class="product-img img8">👕</div>
+
+<div class="info">
+
+<h3>Performance T-Shirt</h3>
+
+<div class="category-name">
+Sports T-Shirt
+</div>
+
+<div class="price">
+₹599
+</div>
+
+<div class="buttons">
+
+<button class="add"
+onclick="addCart('Performance T-Shirt',599)">
+Add Cart
+</button>
+
+<button class="buy"
+onclick="buyNow('Performance T-Shirt',599)">
+Buy Now
+</button>
+
+</div>
+
+</div>
+</div>
+
+
+<!-- PRODUCT 9 -->
+
+<div class="card" data-category="lower">
+
+<div class="product-img img9">👖</div>
+
+<div class="info">
+
+<h3>Running Track Pant</h3>
+
+<div class="category-name">
+Running Wear
+</div>
+
+<div class="price">
+₹749
+</div>
+
+<div class="buttons">
+
+<button class="add"
+onclick="addCart('Running Track Pant',749)">
+Add Cart
+</button>
+
+<button class="buy"
+onclick="buyNow('Running Track Pant',749)">
+Buy Now
+</button>
+
+</div>
+
+</div>
+</div>
+
+
+<!-- PRODUCT 10 -->
+
+<div class="card" data-category="tracksuit">
+
+<div class="product-img img10">🏃</div>
+
+<div class="info">
+
+<h3>Premium Gym Tracksuit</h3>
+
+<div class="category-name">
+Gym Wear
+</div>
+
+<div class="price">
+₹1,199
+</div>
+
+<div class="buttons">
+
+<button class="add"
+onclick="addCart('Premium Gym Tracksuit',1199)">
+Add Cart
+</button>
+
+<button class="buy"
+onclick="buyNow('Premium Gym Tracksuit',1199)">
+Buy Now
+</button>
+
+</div>
+
+</div>
+</div>
 
 </section>
 
+
 <!-- CART -->
+
 <div class="cart-box" id="cartBox">
 
-  <span class="close" onclick="closeCart()">✕</span>
+<span class="close" onclick="closeCart()">✕</span>
 
-  <h2>🛒 Your Cart</h2>
+<h2>🛒 Your Cart</h2>
 
-  <div id="cartItems"></div>
+<br>
 
-  <div class="total">
-    Total: ₹<span id="cartTotal">0</span>
-  </div>
+<div id="cartItems"></div>
 
-  <button
-    class="buy"
-    style="width:100%; margin-top:20px;"
-    onclick="checkout()">
-    Proceed to Order
-  </button>
+<div class="total">
+Total: ₹<span id="cartTotal">0</span>
+</div>
+
+<button
+class="buy"
+style="width:100%;margin-top:20px"
+onclick="checkout()">
+
+Order on WhatsApp
+
+</button>
 
 </div>
 
+
 <footer>
-  <h2>🔥 LALIT FASHION COLLECTION</h2>
-  <p>Wear Your Style • Play Your Game</p>
-  <p>© 2026 Lalit Fashion Collection</p>
+
+<h2>🔥 LALIT FASHION COLLECTION</h2>
+
+<p>
+Wear Your Style • Play Your Game
+</p>
+
+<p>
+© 2026 Lalit Fashion Collection
+</p>
+
 </footer>
+
 
 <script>
 
-  let cart = [];
-  let total = 0;
+let cart=[];
+let total=0;
 
-  function addCart(name, price) {
 
-    cart.push({
-      name: name,
-      price: price
-    });
+/* CATEGORY */
 
-    total += price;
+function showCategory(category){
 
-    document.getElementById("cartCount").innerText = cart.length;
+let cards=document.querySelectorAll(".card");
 
-    alert(name + " added to cart 🛒");
+cards.forEach(card=>{
 
-    updateCart();
-  }
+if(category==="all" ||
+card.dataset.category===category){
 
-  function updateCart() {
+card.style.display="block";
 
-    let box = document.getElementById("cartItems");
+}else{
 
-    box.innerHTML = "";
+card.style.display="none";
 
-    cart.forEach((item, index) => {
+}
 
-      box.innerHTML += `
-        <div class="cart-item">
-          <b>${item.name}</b>
-          <p>₹${item.price}</p>
+});
 
-          <button
-            onclick="removeCart(${index})"
-            style="margin-top:6px;padding:6px;border:0;border-radius:5px;cursor:pointer;">
-            Remove
-          </button>
-        </div>
-      `;
-    });
+document.getElementById("categories")
+.scrollIntoView({
+behavior:"smooth"
+});
 
-    document.getElementById("cartTotal").innerText = total;
-  }
+}
 
-  function removeCart(index) {
 
-    total -= cart[index].price;
+/* SEARCH */
 
-    cart.splice(index, 1);
+function searchProducts(){
 
-    document.getElementById("cartCount").innerText = cart.length;
+let search=
+document.getElementById("search")
+.value
+.toLowerCase();
 
-    updateCart();
-  }
+let cards=document.querySelectorAll(".card");
 
-  function openCart() {
-    document.getElementById("cartBox").classList.add("active");
-  }
+cards.forEach(card=>{
 
-  function closeCart() {
-    document.getElementById("cartBox").classList.remove("active");
-  }
+let text=card.innerText.toLowerCase();
 
-  function buyNow(name, price) {
+card.style.display=
+text.includes(search)
+?"block"
+:"none";
 
-    alert(
-      "🛍️ " + name +
-      "\nPrice: ₹" + price +
-      "\n\nOrder feature can be connected to WhatsApp."
-    );
-  }
+});
 
-  function checkout() {
+}
 
-    if (cart.length === 0) {
-      alert("Your cart is empty!");
-      return;
-    }
 
-    let message = "Hello Lalit Fashion Collection,%0A%0AI want to order:%0A";
+/* CART */
 
-    cart.forEach(item => {
-      message +=
-        "• " + item.name +
-        " - ₹" + item.price +
-        "%0A";
-    });
+function addCart(name,price){
 
-    message += "%0ATotal: ₹" + total;
+cart.push({
+name:name,
+price:price
+});
 
-    /*
-      Yahan apna WhatsApp number daalna.
-      Example:
-      919876543210
-    */
+total+=price;
 
-    let phone = "919999999999";
+document.getElementById("cartCount")
+.innerText=cart.length;
 
-    window.open(
-      "https://wa.me/" + phone +
-      "?text=" + message,
-      "_blank"
-    );
-  }
+updateCart();
 
-  function searchProducts() {
+alert(name+" added to cart 🛒");
 
-    let search =
-      document.getElementById("search")
-      .value
-      .toLowerCase();
+}
 
-    let cards =
-      document.querySelectorAll(".card");
 
-    cards.forEach(card => {
+function updateCart(){
 
-      let name =
-        card.querySelector("h3")
-        .innerText
-        .toLowerCase();
+let box=document.getElementById("cartItems");
 
-      card.style.display =
-        name.includes(search)
-        ? "block"
-        : "none";
-    });
-  }
+box.innerHTML="";
 
-  function filterProducts() {
+cart.forEach((item,index)=>{
 
-    let filter =
-      document.getElementById("filter").value;
+box.innerHTML+=`
 
-    let cards =
-      document.querySelectorAll(".card");
+<div class="cart-item">
 
-    cards.forEach(card => {
+<b>${item.name}</b>
 
-      let category =
-        card.getAttribute("data-category");
+<p>₹${item.price}</p>
 
-      if (filter === "all" || category === filter) {
-        card.style.display = "block";
-      } else {
-        card.style.display = "none";
-      }
-    });
-  }
+<button onclick="removeCart(${index})">
+Remove
+</button>
+
+</div>
+
+`;
+
+});
+
+document.getElementById("cartTotal")
+.innerText=total;
+
+}
+
+
+function removeCart(index){
+
+total-=cart[index].price;
+
+cart.splice(index,1);
+
+document.getElementById("cartCount")
+.innerText=cart.length;
+
+updateCart();
+
+}
+
+
+function openCart(){
+
+document
+.getElementById("cartBox")
+.classList.add("active");
+
+}
+
+
+function closeCart(){
+
+document
+.getElementById("cartBox")
+.classList.remove("active");
+
+}
+
+
+/* BUY NOW */
+
+function buyNow(name,price){
+
+alert(
+"🛍️ "+name+
+"\nPrice: ₹"+price+
+"\n\nProduct selected!"
+);
+
+}
+
+
+/* CHECKOUT */
+
+function checkout(){
+
+if(cart.length===0){
+
+alert("Your cart is empty!");
+
+return;
+
+}
+
+let message=
+"Hello Lalit Fashion Collection,%0A%0AI want to order:%0A";
+
+cart.forEach(item=>{
+
+message+=
+"• "+item.name+
+" - ₹"+item.price+
+"%0A";
+
+});
+
+message+=
+"%0ATotal: ₹"+total;
+
+let phone="919999999999";
+
+window.open(
+"https://wa.me/"+phone+
+"?text="+message,
+"_blank"
+);
+
+}
 
 </script>
 
