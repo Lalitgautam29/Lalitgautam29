@@ -194,23 +194,28 @@ async function loadProducts() {
     .order("id", { ascending: true });
 
   if (error) {
-    document.body.insertAdjacentHTML(
-      "beforeend",
-      "<p>Database Error: " + error.message + "</p>"
-    );
+    console.error(error);
     return;
   }
 
-  if (data.length > 0) {
-    document.body.insertAdjacentHTML(
-      "beforeend",
-      "<h2>Database Connected ✅</h2><p>" + data[0].name + " — ₹" + data[0].price + "</p>"
-    );
-  }
+  const productsSection = document.querySelector(".products");
+
+  productsSection.innerHTML = "";
+
+  data.forEach(product => {
+    productsSection.innerHTML += `
+      <div class="product">
+        <div class="product-image">👕</div>
+        <h2>${product.name}</h2>
+        <p class="price">₹${product.price}</p>
+        <a href="product.html" class="buy">View Product</a>
+      </div>
+    `;
+  });
 }
 
 loadProducts();
-</script>  
+</script>
  
 </body>
 </html>
