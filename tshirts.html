@@ -185,24 +185,32 @@ const supabaseClient = supabase.createClient(
   SUPABASE_KEY
 );
 </script>
-  <script>
+<script>
 async function loadProducts() {
   const { data, error } = await supabaseClient
     .from("products")
     .select("*")
     .eq("category", "T-Shirts")
-    .order("id", { ascending: true });
+    .limit(1);
 
   if (error) {
-    console.error("Products load error:", error);
+    document.body.insertAdjacentHTML(
+      "beforeend",
+      "<p>Database Error: " + error.message + "</p>"
+    );
     return;
   }
 
-  console.log("Database products:", data);
+  if (data.length > 0) {
+    document.body.insertAdjacentHTML(
+      "beforeend",
+      "<h2>Database Connected ✅</h2><p>" + data[0].name + " — ₹" + data[0].price + "</p>"
+    );
+  }
 }
 
 loadProducts();
-    alert("Supabase connection code is running");
-</script>
+</script>  
+ 
 </body>
 </html>
