@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Product Details | LALIT FASHION COLLECTION</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #f5f5f5;
+      color: #222;
+    }
+
+    header {
+      background: #111;
+      color: white;
+      padding: 18px 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .logo {
+      font-size: 21px;
+      font-weight: bold;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 5px;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: #ffcc00;
+    }
+
+    .product-page {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 20px;
+    }
+
+    .product-box {
+      background: white;
+      border-radius: 18px;
+      padding: 30px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 35px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.12);
+    }
+
+    .product-image {
+      min-height: 400px;
+      background: linear-gradient(135deg, #ff512f, #dd2476);
+      border-radius: 15px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 150px;
+    }
+
+    .details {
+      padding: 15px;
+    }
+
+    .details h1 {
+      font-size: 34px;
+      margin-bottom: 15px;
+    }
+
+    .price {
+      font-size: 28px;
+      font-weight: bold;
+      margin: 20px 0;
+    }
+
+    .description {
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    .sizes {
+      margin: 20px 0;
+    }
+
+    .sizes button {
+      padding: 10px 18px;
+      margin: 5px;
+      border: 1px solid #aaa;
+      background: white;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .sizes button:hover {
+      background: #111;
+      color: white;
+    }
+
+    .cart-btn {
+      display: inline-block;
+      background: #111;
+      color: white;
+      border: none;
+      padding: 14px 28px;
+      border-radius: 25px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-right: 8px;
+    }
+
+    .buy-btn {
+      display: inline-block;
+      background: #dd2476;
+      color: white;
+      border: none;
+      padding: 14px 28px;
+      border-radius: 25px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .message {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+
+    footer {
+      background: #111;
+      color: white;
+      text-align: center;
+      padding: 25px;
+      margin-top: 30px;
+    }
+
+    @media (max-width: 700px) {
+      .product-box {
+        grid-template-columns: 1fr;
+      }
+
+      .product-image {
+        min-height: 300px;
+        font-size: 110px;
+      }
+
+      .details h1 {
+        font-size: 28px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+
+  <div class="logo">
+    LALIT FASHION COLLECTION
+  </div>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="tshirts.html">T-Shirts</a>
+    <a href="trackpants.html">Track Pants</a>
+    <a href="shorts.html">Shorts</a>
+    <a href="jerseys.html">Jerseys</a>
+    <a href="sportswear.html">Sports Wear</a>
+    <a href="cart.html">Cart 🛒</a>
+    <a href="login.html">Login</a>
+  </nav>
+
+</header>
+
+<main class="product-page">
+
+  <div class="product-box">
+
+    <div class="product-image">
+      👕
+    </div>
+
+    <div class="details">
+
+      <h1>Gym T-Shirt</h1>
+
+      <p>
+        ⭐⭐⭐⭐⭐
+      </p>
+
+      <p class="price">
+        ₹499
+      </p>
+
+      <p class="description">
+        Stylish and comfortable Gym T-Shirt.
+        Perfect for gym, running, training and daily sports activities.
+      </p>
+
+      <h3>Select Size</h3>
+
+      <div class="sizes">
+        <button onclick="selectSize('S')">S</button>
+        <button onclick="selectSize('M')">M</button>
+        <button onclick="selectSize('L')">L</button>
+        <button onclick="selectSize('XL')">XL</button>
+      </div>
+
+      <p id="selectedSize">
+        Size: Not Selected
+      </p>
+
+      <br>
+
+      <button class="cart-btn" onclick="addToCart()">
+        Add to Cart 🛒
+      </button>
+
+      <button class="buy-btn" onclick="buyNow()">
+        Buy Now
+      </button>
+
+      <p class="message" id="message"></p>
+
+    </div>
+
+  </div>
+
+</main>
+
+<footer>
+
+  <p>© 2026 LALIT FASHION COLLECTION</p>
+  <p>All Rights Reserved</p>
+
+</footer>
+
+<script>
+
+  let selectedSize = "";
+
+  function selectSize(size) {
+
+    selectedSize = size;
+
+    document.getElementById("selectedSize").innerText =
+      "Size: " + size;
+
+  }
+
+  function addToCart() {
+
+    if (selectedSize === "") {
+
+      document.getElementById("message").innerText =
+        "Please select a size first.";
+
+      return;
+    }
+
+    document.getElementById("message").innerText =
+      "Gym T-Shirt added to cart successfully! 🛒";
+
+  }
+
+  function buyNow() {
+
+    if (selectedSize === "") {
+
+      document.getElementById("message").innerText =
+        "Please select a size first.";
+
+      return;
+    }
+
+    window.location.href = "checkout.html";
+
+  }
+
+</script>
+
+</body>
+</html>
