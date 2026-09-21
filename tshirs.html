@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>T-Shirts | LALIT FASHION COLLECTION</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #f5f5f5;
+    }
+
+    header {
+      background: #111;
+      color: white;
+      padding: 18px 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .logo {
+      font-size: 21px;
+      font-weight: bold;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 5px;
+      font-weight: bold;
+    }
+
+    .title {
+      text-align: center;
+      padding: 40px 20px;
+      background: linear-gradient(135deg, #ff512f, #dd2476);
+      color: white;
+    }
+
+    .title h1 {
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+
+    .products {
+      padding: 35px 5%;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .product {
+      background: white;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.12);
+      text-align: center;
+      padding-bottom: 20px;
+    }
+
+    .product-image {
+      height: 220px;
+      background: linear-gradient(135deg, #eeeeee, #dddddd);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 80px;
+    }
+
+    .product h2 {
+      margin: 18px 10px 8px;
+      font-size: 21px;
+    }
+
+    .price {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+
+    .buy {
+      display: inline-block;
+      background: #111;
+      color: white;
+      text-decoration: none;
+      padding: 11px 22px;
+      border-radius: 25px;
+      font-weight: bold;
+    }
+
+    .buy:hover {
+      background: #dd2476;
+    }
+
+    footer {
+      background: #111;
+      color: white;
+      text-align: center;
+      padding: 25px;
+    }
+
+    @media (max-width: 600px) {
+      .title h1 {
+        font-size: 30px;
+      }
+
+      nav {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">LALIT FASHION COLLECTION</div>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="login.html">Login</a>
+    <a href="cart.html">Cart 🛒</a>
+  </nav>
+</header>
+
+<section class="title">
+  <h1>👕 T-Shirts</h1>
+  <p>Choose Your Favourite T-Shirt</p>
+</section>
+
+<section class="products">
+
+  <div class="product">
+    <div class="product-image">👕</div>
+    <h2>Gym T-Shirt</h2>
+    <p class="price">₹499</p>
+    <a href="#" class="buy">View Product</a>
+  </div>
+
+  <div class="product">
+    <div class="product-image">👕</div>
+    <h2>Running T-Shirt</h2>
+    <p class="price">₹549</p>
+    <a href="#" class="buy">View Product</a>
+  </div>
+
+  <div class="product">
+    <div class="product-image">👕</div>
+    <h2>Football T-Shirt</h2>
+    <p class="price">₹599</p>
+    <a href="#" class="buy">View Product</a>
+  </div>
+
+  <div class="product">
+    <div class="product-image">👕</div>
+    <h2>Oversized T-Shirt</h2>
+    <p class="price">₹649</p>
+    <a href="#" class="buy">View Product</a>
+  </div>
+
+</section>
+
+<footer>
+  <p>© 2026 LALIT FASHION COLLECTION</p>
+  <p>All Rights Reserved</p>
+</footer>
+
+</body>
+</html>
