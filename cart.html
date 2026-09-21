@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cart | LALIT FASHION COLLECTION">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #f5f5f5;
+      color: #222;
+    }
+
+    header {
+      background: #111;
+      color: white;
+      padding: 18px 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .logo {
+      font-size: 21px;
+      font-weight: bold;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 5px;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: #ffcc00;
+    }
+
+    .title {
+      text-align: center;
+      padding: 40px 20px;
+      background: linear-gradient(135deg, #ff512f, #dd2476);
+      color: white;
+    }
+
+    .title h1 {
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+
+    .cart {
+      max-width: 900px;
+      margin: 35px auto;
+      padding: 20px;
+    }
+
+    .cart-item {
+      background: white;
+      padding: 20px;
+      margin-bottom: 15px;
+      border-radius: 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+    }
+
+    .item-info {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .item-icon {
+      width: 75px;
+      height: 75px;
+      border-radius: 10px;
+      background: #eee;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 40px;
+    }
+
+    .item-info h2 {
+      margin-bottom: 6px;
+      font-size: 19px;
+    }
+
+    .remove {
+      background: #111;
+      color: white;
+      border: none;
+      padding: 9px 15px;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+
+    .summary {
+      background: white;
+      padding: 25px;
+      border-radius: 15px;
+      margin-top: 25px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+    }
+
+    .summary p {
+      display: flex;
+      justify-content: space-between;
+      margin: 12px 0;
+    }
+
+    .total {
+      font-size: 23px;
+      font-weight: bold;
+      border-top: 1px solid #ddd;
+      padding-top: 15px;
+    }
+
+    .checkout {
+      display: block;
+      width: 100%;
+      margin-top: 20px;
+      padding: 14px;
+      background: #dd2476;
+      color: white;
+      border: none;
+      border-radius: 25px;
+      font-size: 17px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .empty {
+      text-align: center;
+      background: white;
+      padding: 50px 20px;
+      border-radius: 15px;
+      font-size: 20px;
+    }
+
+    footer {
+      background: #111;
+      color: white;
+      text-align: center;
+      padding: 25px;
+      margin-top: 30px;
+    }
+
+    @media (max-width: 600px) {
+      .title h1 {
+        font-size: 30px;
+      }
+
+      .cart-item {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .remove {
+        align-self: flex-end;
+      }
+
+      nav {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+
+  <div class="logo">
+    LALIT FASHION COLLECTION
+  </div>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="tshirts.html">T-Shirts</a>
+    <a href="trackpants.html">Track Pants</a>
+    <a href="shorts.html">Shorts</a>
+    <a href="jerseys.html">Jerseys</a>
+    <a href="sportswear.html">Sports Wear</a>
+    <a href="login.html">Login</a>
+    <a href="cart.html">Cart 🛒</a>
+  </nav>
+
+</header>
+
+<section class="title">
+  <h1>🛒 My Cart</h1>
+  <p>Review Your Products</p>
+</section>
+
+<main class="cart">
+
+  <div id="cartItems">
+
+    <div class="cart-item">
+
+      <div class="item-info">
+
+        <div class="item-icon">
+          👕
+        </div>
+
+        <div>
+          <h2>Gym T-Shirt</h2>
+          <p>Size: M</p>
+          <p>₹499</p>
+        </div>
+
+      </div>
+
+      <button class="remove" onclick="removeItem(this)">
+        Remove
+      </button>
+
+    </div>
+
+  </div>
+
+  <div class="summary">
+
+    <p>
+      <span>Subtotal</span>
+      <span id="subtotal">₹499</span>
+    </p>
+
+    <p>
+      <span>Delivery</span>
+      <span>₹50</span>
+    </p>
+
+    <p class="total">
+      <span>Total</span>
+      <span id="total">₹549</span>
+    </p>
+
+    <button class="checkout" onclick="goCheckout()">
+      Proceed to Checkout →
+    </button>
+
+  </div>
+
+</main>
+
+<footer>
+
+  <p>© 2026 LALIT FASHION COLLECTION</p>
+  <p>All Rights Reserved</p>
+
+</footer>
+
+<script>
+
+  function removeItem(button) {
+
+    button.parentElement.remove();
+
+    document.getElementById("subtotal").innerText = "₹0";
+    document.getElementById("total").innerText = "₹50";
+
+  }
+
+  function goCheckout() {
+
+    window.location.href = "checkout.html";
+
+  }
+
+</script>
+
+</body>
+</html>
