@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login | LALIT FASHION COLLECTION">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #ff512f, #dd2476);
+    }
+
+    header {
+      background: #111;
+      color: white;
+      padding: 18px 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .logo {
+      font-size: 21px;
+      font-weight: bold;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 5px;
+      font-weight: bold;
+    }
+
+    .login-container {
+      min-height: 80vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 30px 15px;
+    }
+
+    .login-box {
+      width: 100%;
+      max-width: 420px;
+      background: white;
+      padding: 35px 25px;
+      border-radius: 20px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    }
+
+    .login-box h1 {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .login-box .subtitle {
+      text-align: center;
+      color: #666;
+      margin-bottom: 25px;
+    }
+
+    label {
+      display: block;
+      margin: 15px 0 7px;
+      font-weight: bold;
+    }
+
+    input {
+      width: 100%;
+      padding: 13px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      font-size: 16px;
+    }
+
+    .login-btn {
+      width: 100%;
+      margin-top: 25px;
+      padding: 14px;
+      border: none;
+      border-radius: 25px;
+      background: #111;
+      color: white;
+      font-size: 17px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .login-btn:hover {
+      background: #dd2476;
+    }
+
+    .signup-link {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .signup-link a {
+      color: #dd2476;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    #message {
+      text-align: center;
+      margin-top: 18px;
+      font-weight: bold;
+    }
+
+    footer {
+      background: #111;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    @media (max-width: 600px) {
+      nav {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+
+  <div class="logo">
+    LALIT FASHION COLLECTION
+  </div>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="cart.html">Cart 🛒</a>
+  </nav>
+
+</header>
+
+<main class="login-container">
+
+  <div class="login-box">
+
+    <h1>🔐 Login</h1>
+
+    <p class="subtitle">
+      Welcome to LALIT FASHION COLLECTION
+    </p>
+
+    <form onsubmit="loginUser(event)">
+
+      <label for="email">
+        Email
+      </label>
+
+      <input
+        type="email"
+        id="email"
+        placeholder="Enter your email"
+        required
+      >
+
+      <label for="password">
+        Password
+      </label>
+
+      <input
+        type="password"
+        id="password"
+        placeholder="Enter your password"
+        required
+      >
+
+      <button class="login-btn" type="submit">
+        Login
+      </button>
+
+    </form>
+
+    <p id="message"></p>
+
+    <div class="signup-link">
+      Don't have an account?
+      <a href="signup.html">Create Account</a>
+    </div>
+
+  </div>
+
+</main>
+
+<footer>
+  <p>© 2026 LALIT FASHION COLLECTION</p>
+</footer>
+
+<script>
+
+  function loginUser(event) {
+
+    event.preventDefault();
+
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+
+    if (email && password) {
+
+      document.getElementById("message").innerText =
+        "Login system is ready. Backend will be connected next.";
+
+    }
+
+  }
+
+</script>
+
+</body>
+</html>
