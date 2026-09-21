@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Checkout - LALIT FASHION COLLECTION</title>
+
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background: #f5f5f5;
+}
+
+header {
+  background: linear-gradient(90deg, #ff6a00, #ee0979);
+  color: white;
+  padding: 18px;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 23px;
+}
+
+nav {
+  margin-top: 12px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 6px;
+  font-weight: bold;
+}
+
+.checkout {
+  max-width: 700px;
+  margin: 25px auto;
+  padding: 15px;
+}
+
+.checkout h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.box {
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  margin-bottom: 18px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+
+.box h3 {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin: 12px 0 6px;
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 9px;
+  font-size: 15px;
+}
+
+textarea {
+  height: 90px;
+  resize: none;
+}
+
+.product {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.product-image {
+  width: 75px;
+  height: 75px;
+  background: linear-gradient(135deg, #ff6a00, #ee0979);
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 35px;
+}
+
+.product-info h4 {
+  margin-bottom: 7px;
+}
+
+.product-info p {
+  color: #666;
+  margin: 4px 0;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 9px 0;
+}
+
+.total {
+  border-top: 1px solid #ddd;
+  margin-top: 8px;
+  padding-top: 14px;
+  font-size: 19px;
+  font-weight: bold;
+  color: #ee0979;
+}
+
+.payment-option {
+  display: block;
+  padding: 13px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.payment-option input {
+  width: auto;
+  margin-right: 8px;
+}
+
+button {
+  width: 100%;
+  padding: 15px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #ff6a00, #ee0979);
+  color: white;
+  font-size: 17px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+#message {
+  text-align: center;
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+footer {
+  text-align: center;
+  padding: 25px;
+  color: #777;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+  <h1>👗 LALIT FASHION COLLECTION</h1>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="cart.html">Cart</a>
+    <a href="profile.html">Profile</a>
+  </nav>
+
+</header>
+
+
+<div class="checkout">
+
+  <h2>🛒 Checkout</h2>
+
+
+  <!-- Customer Details -->
+
+  <div class="box">
+
+    <h3>👤 Customer Details</h3>
+
+    <label>Full Name</label>
+    <input type="text" id="name" placeholder="Enter your name" required>
+
+    <label>Mobile Number</label>
+    <input type="tel" id="mobile" placeholder="Enter mobile number" required>
+
+    <label>Email</label>
+    <input type="email" id="email" placeholder="Enter email" required>
+
+  </div>
+
+
+  <!-- Delivery Address -->
+
+  <div class="box">
+
+    <h3>📍 Delivery Address</h3>
+
+    <label>Address</label>
+
+    <textarea id="address"
+      placeholder="House No, Village/Street, Area"
+      required></textarea>
+
+    <label>City</label>
+
+    <input type="text" id="city"
+      placeholder="Enter city" required>
+
+    <label>State</label>
+
+    <input type="text" id="state"
+      placeholder="Enter state" required>
+
+    <label>Pincode</label>
+
+    <input type="number" id="pincode"
+      placeholder="6 digit pincode" required>
+
+  </div>
+
+
+  <!-- Order Summary -->
+
+  <div class="box">
+
+    <h3>📦 Order Summary</h3>
+
+    <div class="product">
+
+      <div class="product-image">
+        👕
+      </div>
+
+      <div class="product-info">
+
+        <h4>Gym T-Shirt</h4>
+
+        <p>Size: M</p>
+
+        <p>Quantity: 1</p>
+
+        <p>Product Price: ₹499</p>
+
+      </div>
+
+    </div>
+
+
+    <div class="summary-row">
+      <span>Product</span>
+      <span>₹499</span>
+    </div>
+
+    <div class="summary-row">
+      <span>Delivery</span>
+      <span>₹50</span>
+    </div>
+
+    <div class="summary-row total">
+      <span>Total</span>
+      <span>₹549</span>
+    </div>
+
+  </div>
+
+
+  <!-- Payment -->
+
+  <div class="box">
+
+    <h3>💳 Payment Method</h3>
+
+    <label class="payment-option">
+      <input type="radio" name="payment" value="cod" checked>
+      Cash on Delivery
+    </label>
+
+    <label class="payment-option">
+      <input type="radio" name="payment" value="online">
+      Online Payment
+    </label>
+
+  </div>
+
+
+  <!-- Place Order -->
+
+  <div class="box">
+
+    <button onclick="placeOrder()">
+      ✅ Place Order
+    </button>
+
+    <div id="message"></div>
+
+  </div>
+
+</div>
+
+
+<footer>
+  © 2026 LALIT FASHION COLLECTION
+</footer>
+
+
+<script>
+
+function placeOrder() {
+
+  let name = document.getElementById("name").value;
+  let mobile = document.getElementById("mobile").value;
+  let address = document.getElementById("address").value;
+  let city = document.getElementById("city").value;
+  let state = document.getElementById("state").value;
+  let pincode = document.getElementById("pincode").value;
+
+  let message = document.getElementById("message");
+
+  if (
+    name === "" ||
+    mobile === "" ||
+    address === "" ||
+    city === "" ||
+    state === "" ||
+    pincode === ""
+  ) {
+
+    message.style.color = "red";
+    message.innerHTML =
+      "Please fill all delivery details.";
+
+    return;
+  }
+
+  message.style.color = "green";
+
+  message.innerHTML =
+    "🎉 Order placed successfully!";
+
+}
+
+</script>
+
+</body>
+</html>
