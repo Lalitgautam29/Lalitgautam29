@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Contact Us - LALIT FASHION COLLECTION</title>
+
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background: #f5f5f5;
+}
+
+header {
+  background: linear-gradient(90deg, #ff6a00, #ee0979);
+  color: white;
+  padding: 18px;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 23px;
+}
+
+nav {
+  margin-top: 12px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 6px;
+  font-weight: bold;
+}
+
+.contact {
+  max-width: 700px;
+  margin: 30px auto;
+  padding: 15px;
+}
+
+.contact h2 {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.box {
+  background: white;
+  padding: 25px;
+  border-radius: 16px;
+  margin-bottom: 20px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+
+.info {
+  display: grid;
+  gap: 15px;
+}
+
+.info-item {
+  padding: 15px;
+  background: #f8f8f8;
+  border-radius: 10px;
+}
+
+.info-item strong {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.info-item a {
+  color: #ee0979;
+  text-decoration: none;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin: 12px 0 6px;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 9px;
+  font-size: 15px;
+}
+
+textarea {
+  height: 120px;
+  resize: none;
+}
+
+button {
+  width: 100%;
+  padding: 14px;
+  margin-top: 18px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #ff6a00, #ee0979);
+  color: white;
+  font-size: 17px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#message {
+  text-align: center;
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+footer {
+  text-align: center;
+  padding: 25px;
+  color: #777;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+  <h1>👗 LALIT FASHION COLLECTION</h1>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="tshirts.html">T-Shirts</a>
+    <a href="cart.html">Cart</a>
+    <a href="profile.html">Profile</a>
+  </nav>
+
+</header>
+
+
+<div class="contact">
+
+  <h2>📞 Contact Us</h2>
+
+
+  <!-- Contact Information -->
+
+  <div class="box">
+
+    <h3>Get In Touch</h3>
+
+    <br>
+
+    <div class="info">
+
+      <div class="info-item">
+        <strong>📧 Email</strong>
+        <a href="mailto:lalitfashioncollection@gmail.com">
+          lalitfashioncollection@gmail.com
+        </a>
+      </div>
+
+      <div class="info-item">
+        <strong>📱 Mobile</strong>
+        <a href="tel:+919999999999">
+          +91 99999 99999
+        </a>
+      </div>
+
+      <div class="info-item">
+        <strong>📍 Address</strong>
+        <span>India</span>
+      </div>
+
+      <div class="info-item">
+        <strong>🕐 Customer Support</strong>
+        <span>Monday - Saturday, 10 AM - 7 PM</span>
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- Contact Form -->
+
+  <div class="box">
+
+    <h3>Send Us a Message</h3>
+
+    <form id="contactForm">
+
+      <label>Your Name</label>
+
+      <input
+        type="text"
+        id="name"
+        placeholder="Enter your name"
+        required
+      >
+
+
+      <label>Your Email</label>
+
+      <input
+        type="email"
+        id="email"
+        placeholder="Enter your email"
+        required
+      >
+
+
+      <label>Message</label>
+
+      <textarea
+        id="userMessage"
+        placeholder="Write your message..."
+        required
+      ></textarea>
+
+
+      <button type="submit">
+        📩 Send Message
+      </button>
+
+    </form>
+
+    <div id="message"></div>
+
+  </div>
+
+</div>
+
+
+<footer>
+  © 2026 LALIT FASHION COLLECTION
+</footer>
+
+
+<script>
+
+document.getElementById("contactForm").addEventListener("submit", function(e) {
+
+  e.preventDefault();
+
+  document.getElementById("message").style.color = "green";
+
+  document.getElementById("message").innerHTML =
+    "✅ Your message has been submitted!";
+
+});
+
+</script>
+
+</body>
+</html>
