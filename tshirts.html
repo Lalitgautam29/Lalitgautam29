@@ -185,5 +185,23 @@ const supabaseClient = supabase.createClient(
   SUPABASE_KEY
 );
 </script>
+  <script>
+async function loadProducts() {
+  const { data, error } = await supabaseClient
+    .from("products")
+    .select("*")
+    .eq("category", "T-Shirts")
+    .order("id", { ascending: true });
+
+  if (error) {
+    console.error("Products load error:", error);
+    return;
+  }
+
+  console.log("Database products:", data);
+}
+
+loadProducts();
+</script>
 </body>
 </html>
