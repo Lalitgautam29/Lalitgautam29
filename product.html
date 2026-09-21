@@ -244,50 +244,49 @@
   <p>All Rights Reserved</p>
 
 </footer>
-
 <script>
+const SUPABASE_URL = "https://trzczihcgtjjxbylmlxs.supabase.co/rest/v1/";
+const SUPABASE_KEY = "sb_publishable_dIMptpn1_nAdR_Jl8pXc7Q_Lo-E_UVI";
 
-  let selectedSize = "";
+const supabaseClient = supabase.createClient(
+  SUPABASE_URL,
+  SUPABASE_KEY
+);
 
-  function selectSize(size) {
+async function loadProduct() {
 
-    selectedSize = size;
+  const params = new URLSearchParams(window.location.search);
+  const productId = params.get("id");
 
-    document.getElementById("selectedSize").innerText =
-      "Size: " + size;
-
+  if (!productId) {
+    document.querySelector(".details").innerHTML =
+      "<h2>Product not found</h2>";
+    return;
   }
 
-  function addToCart() {
+  const { data, error } = await supabaseClient
+    .from("products")
+    .select("*")
+    .eq("id", productId)
+    .single();
 
-    if (selectedSize === "") {
-
-      document.getElementById("message").innerText =
-        "Please select a size first.";
-
-      return;
-    }
-
-    document.getElementById("message").innerText =
-      "Gym T-Shirt added to cart successfully! 🛒";
-
+  if (error) {
+    console.error(error);
+    document.querySelector(".details").innerHTML =
+      "<h2>Product could not be loaded.</h2>";
+    return;
   }
 
-  function buyNow() {
+  document.querySelector(".details h1").innerText = data.name;
+  document.querySelector(".price").innerText = "₹" + data.price;
+  document.querySelector(".description").innerText =
+    data.description || "No description available.";
 
-    if (selectedSize === "") {
+}
 
-      document.getElementById("message").innerText =
-        "Please select a size first.";
-
-      return;
-    }
-
-    window.location.href = "checkout.html";
-
-  }
-
+loadProduct();
 </script>
 
+ 
 </body>
 </html>
