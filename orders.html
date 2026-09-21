@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>My Orders - LALIT FASHION COLLECTION</title>
+
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background: #f5f5f5;
+}
+
+header {
+  background: linear-gradient(90deg, #ff6a00, #ee0979);
+  color: white;
+  padding: 18px;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 24px;
+}
+
+nav {
+  margin-top: 12px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 6px;
+  font-weight: bold;
+}
+
+.orders-container {
+  max-width: 700px;
+  margin: 30px auto;
+  padding: 15px;
+}
+
+.orders-container h2 {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.order {
+  background: white;
+  border-radius: 15px;
+  padding: 20px;
+  margin-bottom: 18px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.10);
+}
+
+.order-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.order-id {
+  font-weight: bold;
+}
+
+.status {
+  background: #fff3cd;
+  color: #856404;
+  padding: 6px 10px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.product {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  padding: 15px 0;
+}
+
+.product-image {
+  width: 75px;
+  height: 75px;
+  background: linear-gradient(135deg, #ff6a00, #ee0979);
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 35px;
+}
+
+.product-info h3 {
+  margin-bottom: 7px;
+}
+
+.product-info p {
+  color: #666;
+  font-size: 14px;
+  margin: 4px 0;
+}
+
+.order-bottom {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+.total {
+  color: #ee0979;
+}
+
+.empty {
+  text-align: center;
+  background: white;
+  padding: 35px 20px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+
+.empty-icon {
+  font-size: 50px;
+  margin-bottom: 10px;
+}
+
+.shop-btn {
+  display: inline-block;
+  margin-top: 18px;
+  background: linear-gradient(90deg, #ff6a00, #ee0979);
+  color: white;
+  padding: 12px 22px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+footer {
+  text-align: center;
+  padding: 25px;
+  color: #777;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+  <h1>👗 LALIT FASHION COLLECTION</h1>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="tshirts.html">T-Shirts</a>
+    <a href="trackpants.html">Track Pants</a>
+    <a href="cart.html">Cart</a>
+    <a href="profile.html">Profile</a>
+  </nav>
+
+</header>
+
+
+<div class="orders-container">
+
+  <h2>📦 My Orders</h2>
+
+
+  <!-- Sample Order -->
+
+  <div class="order">
+
+    <div class="order-top">
+
+      <div class="order-id">
+        Order #LFC1001
+      </div>
+
+      <div class="status">
+        Processing
+      </div>
+
+    </div>
+
+
+    <div class="product">
+
+      <div class="product-image">
+        👕
+      </div>
+
+      <div class="product-info">
+
+        <h3>Gym T-Shirt</h3>
+
+        <p>Size: M</p>
+
+        <p>Quantity: 1</p>
+
+        <p>Price: ₹499</p>
+
+      </div>
+
+    </div>
+
+
+    <div class="order-bottom">
+
+      <span>Order Total</span>
+
+      <span class="total">₹549</span>
+
+    </div>
+
+  </div>
+
+
+  <!-- Second Sample Order -->
+
+  <div class="order">
+
+    <div class="order-top">
+
+      <div class="order-id">
+        Order #LFC1002
+      </div>
+
+      <div class="status">
+        Delivered
+      </div>
+
+    </div>
+
+
+    <div class="product">
+
+      <div class="product-image">
+        🩳
+      </div>
+
+      <div class="product-info">
+
+        <h3>Running Shorts</h3>
+
+        <p>Size: L</p>
+
+        <p>Quantity: 1</p>
+
+        <p>Price: ₹449</p>
+
+      </div>
+
+    </div>
+
+
+    <div class="order-bottom">
+
+      <span>Order Total</span>
+
+      <span class="total">₹499</span>
+
+    </div>
+
+  </div>
+
+
+  <div class="empty">
+
+    <div class="empty-icon">🛍️</div>
+
+    <h3>Want to buy something new?</h3>
+
+    <p>Explore our latest fashion and sports wear.</p>
+
+    <a class="shop-btn" href="index.html">
+      Continue Shopping
+    </a>
+
+  </div>
+
+</div>
+
+
+<footer>
+  © 2026 LALIT FASHION COLLECTION
+</footer>
+
+</body>
+</html>
