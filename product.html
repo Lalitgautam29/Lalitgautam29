@@ -237,7 +237,15 @@
 
 <script>
 
-const SUPABASE_URL = "https://trzczihcgtjjxbylmlxs.supabase.co";
+const SUPABASE_URL = "https://trzczihcgtjjxbylmlxs.supabase.co/rest/v1/";
+  "https://trzczihcgtjjxbylmlxs.supabase.co";
+
+/*
+  IMPORTANT:
+  Yahan tumhari existing SUPABASE_KEY wali line
+  current product.html se same rakho.
+*/
+
 const SUPABASE_KEY = "sb_publishable_dIMptpn1_nAdR_Jl8pXc7Q_Lo-E_UVI";
 
 const supabaseClient = supabase.createClient(
@@ -246,7 +254,6 @@ const supabaseClient = supabase.createClient(
 );
 
 let selectedSize = "";
-
 let currentProduct = null;
 
 
@@ -273,6 +280,9 @@ async function loadProduct() {
     document.getElementById("productName").innerText =
       "Product not found";
 
+    document.getElementById("productDescription").innerText =
+      "Product name URL me nahi mila.";
+
     return;
   }
 
@@ -281,41 +291,63 @@ async function loadProduct() {
     .from("products")
     .select("*")
     .eq("name", productName)
-    .limit(1)
-    .single();
+    .limit(1);
 
 
   if (error) {
 
-    console.error(error);
+    console.error("Supabase Error:", error);
 
     document.getElementById("productName").innerText =
-      "Product load nahi ho raha hai";
+      "Product load nahi ho raha";
 
     document.getElementById("productDescription").innerText =
-      "Database error: " + error.message;
+      "Database se product load nahi ho paya.";
 
     return;
   }
 
 
-  currentProduct = data;
+  if (!data || data.length === 0) {
+
+    document.getElementById("productName").innerText =
+      "Product not found";
+
+    document.getElementById("productDescription").innerText =
+      "Ye product database me nahi mila.";
+
+    return;
+  }
+
+
+  currentProduct = data[0];
 
 
   document.getElementById("productName").innerText =
-    data.name;
+    currentProduct.name;
+
 
   document.getElementById("productPrice").innerText =
-    "₹" + data.price;
+    "₹" + currentProduct.price;
+
 
   document.getElementById("productDescription").innerText =
-    data.description ||
+    currentProduct.description ||
     "No description available.";
 
 }
 
 
 function addToCart() {
+
+  if (!currentProduct) {
+
+    document.getElementById("message").innerText =
+      "Product load hone ka wait karein.";
+
+    return;
+  }
+
 
   if (selectedSize === "") {
 
@@ -324,6 +356,7 @@ function addToCart() {
 
     return;
   }
+
 
   document.getElementById("message").innerText =
     currentProduct.name +
@@ -334,6 +367,15 @@ function addToCart() {
 
 function buyNow() {
 
+  if (!currentProduct) {
+
+    document.getElementById("message").innerText =
+      "Product load hone ka wait karein.";
+
+    return;
+  }
+
+
   if (selectedSize === "") {
 
     document.getElementById("message").innerText =
@@ -341,6 +383,7 @@ function buyNow() {
 
     return;
   }
+
 
   window.location.href =
     "checkout.html";
