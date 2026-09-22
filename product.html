@@ -258,7 +258,7 @@ async function loadProduct() {
   const params = new URLSearchParams(window.location.search);
   const productName = params.get("name");
 
-  if (!productId) {
+ if (!productName) {
     document.querySelector(".details").innerHTML =
       "<h2>Product not found</h2>";
     return;
