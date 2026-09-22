@@ -1,7 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Product Details | LALIT FASHION COLLECTION</title>
+
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
   <style>
     * {
       margin: 0;
@@ -36,10 +42,6 @@
       text-decoration: none;
       margin: 5px;
       font-weight: bold;
-    }
-
-    nav a:hover {
-      color: #ffcc00;
     }
 
     .product-page {
@@ -106,9 +108,8 @@
       color: white;
     }
 
-    .cart-btn {
-      display: inline-block;
-      background: #111;
+    .cart-btn,
+    .buy-btn {
       color: white;
       border: none;
       padding: 14px 28px;
@@ -119,16 +120,12 @@
       margin-right: 8px;
     }
 
+    .cart-btn {
+      background: #111;
+    }
+
     .buy-btn {
-      display: inline-block;
       background: #dd2476;
-      color: white;
-      border: none;
-      padding: 14px 28px;
-      border-radius: 25px;
-      font-size: 16px;
-      font-weight: bold;
-      cursor: pointer;
     }
 
     .message {
@@ -164,7 +161,6 @@
 <body>
 
 <header>
-
   <div class="logo">
     LALIT FASHION COLLECTION
   </div>
@@ -179,7 +175,6 @@
     <a href="cart.html">Cart 🛒</a>
     <a href="login.html">Login</a>
   </nav>
-
 </header>
 
 <main class="product-page">
@@ -192,19 +187,16 @@
 
     <div class="details">
 
-      <h1>Gym T-Shirt</h1>
+      <h1 id="productName">Loading...</h1>
 
-      <p>
-        ⭐⭐⭐⭐⭐
+      <p>⭐⭐⭐⭐⭐</p>
+
+      <p class="price" id="productPrice">
+        Loading...
       </p>
 
-      <p class="price">
-        ₹499
-      </p>
-
-      <p class="description">
-        Stylish and comfortable Gym T-Shirt.
-        Perfect for gym, running, training and daily sports activities.
+      <p class="description" id="productDescription">
+        Loading product details...
       </p>
 
       <h3>Select Size</h3>
@@ -239,13 +231,13 @@
 </main>
 
 <footer>
-
   <p>© 2026 LALIT FASHION COLLECTION</p>
   <p>All Rights Reserved</p>
-
 </footer>
+
 <script>
-const SUPABASE_URL = "https://trzczihcgtjjxbylmlxs.supabase.co/rest/v1/";
+
+const SUPABASE_URL = "https://trzczihcgtjjxbylmlxs.supabase.co";
 const SUPABASE_KEY = "sb_publishable_dIMptpn1_nAdR_Jl8pXc7Q_Lo-E_UVI";
 
 const supabaseClient = supabase.createClient(
@@ -253,40 +245,112 @@ const supabaseClient = supabase.createClient(
   SUPABASE_KEY
 );
 
+let selectedSize = "";
+
+let currentProduct = null;
+
+
+function selectSize(size) {
+
+  selectedSize = size;
+
+  document.getElementById("selectedSize").innerText =
+    "Size: " + size;
+
+}
+
+
 async function loadProduct() {
 
-  const params = new URLSearchParams(window.location.search);
+  const params = new URLSearchParams(
+    window.location.search
+  );
+
   const productName = params.get("name");
 
- if (!productName) {
-    document.querySelector(".details").innerHTML =
-      "<h2>Product not found</h2>";
+  if (!productName) {
+
+    document.getElementById("productName").innerText =
+      "Product not found";
+
     return;
   }
+
 
   const { data, error } = await supabaseClient
     .from("products")
     .select("*")
     .eq("name", productName)
+    .limit(1)
     .single();
 
+
   if (error) {
+
     console.error(error);
-    document.querySelector(".details").innerHTML =
-      "<h2>Product could not be loaded.</h2>";
+
+    document.getElementById("productName").innerText =
+      "Product load nahi ho raha hai";
+
+    document.getElementById("productDescription").innerText =
+      "Database error: " + error.message;
+
     return;
   }
 
-  document.querySelector(".details h1").innerText = data.name;
-  document.querySelector(".price").innerText = "₹" + data.price;
-  document.querySelector(".description").innerText =
-    data.description || "No description available.";
+
+  currentProduct = data;
+
+
+  document.getElementById("productName").innerText =
+    data.name;
+
+  document.getElementById("productPrice").innerText =
+    "₹" + data.price;
+
+  document.getElementById("productDescription").innerText =
+    data.description ||
+    "No description available.";
 
 }
 
+
+function addToCart() {
+
+  if (selectedSize === "") {
+
+    document.getElementById("message").innerText =
+      "Please select a size first.";
+
+    return;
+  }
+
+  document.getElementById("message").innerText =
+    currentProduct.name +
+    " added to cart successfully! 🛒";
+
+}
+
+
+function buyNow() {
+
+  if (selectedSize === "") {
+
+    document.getElementById("message").innerText =
+      "Please select a size first.";
+
+    return;
+  }
+
+  window.location.href =
+    "checkout.html";
+
+}
+
+
 loadProduct();
+
 </script>
 
- 
 </body>
 </html>
