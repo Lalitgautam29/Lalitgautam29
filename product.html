@@ -256,7 +256,7 @@ const supabaseClient = supabase.createClient(
 async function loadProduct() {
 
   const params = new URLSearchParams(window.location.search);
-  const productId = params.get("id");
+  const productId = Number(params.get("id"));
 
   if (!productId) {
     document.querySelector(".details").innerHTML =
