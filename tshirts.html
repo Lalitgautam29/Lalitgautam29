@@ -194,11 +194,7 @@ async function loadProducts() {
           ₹${product.price}
         </p>
 
-        <a
-          href="product.html?id=${product.id}"
-          class="buy">
-          View Product
-        </a>
+       <a href="product.html?name=${encodeURIComponent(product.name)}" class="buy">View Product</a>
 
       </div>
     `;
